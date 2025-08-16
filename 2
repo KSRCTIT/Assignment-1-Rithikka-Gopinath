@@ -1,1 +1,61 @@
+using System;
 
+class Question2
+{
+    static void Main(string[] args)
+    {
+         i) Calculator app for kids
+        int a = 10, b = 5;
+        Console.WriteLine($"Total apples: {a + b}");
+        Console.WriteLine($"Difference of pencils: {a - b}");
+        Console.WriteLine($"Total pages when 10 pages are copied 5 times: {a * b}");
+        Console.WriteLine($"Divide 10 chocolates among 5 kids: {a / b}");
+        Console.WriteLine($"Leftover candies after equal distribution: {a % b}");
+        Console.WriteLine();
+
+         ii) Game score comparison
+        int playerA = 20, playerB = 15;
+        Console.WriteLine($"Player A scored more than B: {playerA > playerB}");
+        Console.WriteLine($"Scores are equal: {playerA == playerB}");
+        Console.WriteLine($"Player A failed to beat B: {playerA <= playerB}");
+        Console.WriteLine($"Player B failed to beat A: {playerB <= playerA}");
+        Console.WriteLine();
+
+         iii) Login system
+        bool usernameValid = true;
+        bool passwordValid = false;
+        Console.WriteLine($"Login successful (&&): {usernameValid && passwordValid}");
+        Console.WriteLine($"At least one valid (||): {usernameValid || passwordValid}");
+        Console.WriteLine($"Username not valid (!): {!usernameValid}");
+        Console.WriteLine($"Password not valid (!): {!passwordValid}");
+        if (usernameValid && passwordValid)
+            Console.WriteLine("Access Granted");
+        else
+            Console.WriteLine("Access Denied");
+        Console.WriteLine();
+
+         iv) Quiz score updates
+        int score = 50;
+        Console.WriteLine($"Start score: {score}");
+        score += 10;
+        Console.WriteLine($"After correct answer (+10): {score}");
+        score -= 5;
+        Console.WriteLine($"After wrong answer (-5): {score}");
+        score *= 2;
+        Console.WriteLine($"After bonus round (x2): {score}");
+        score /= 5;
+        Console.WriteLine($"After penalty (/5): {score}");
+        Console.WriteLine();
+
+         v) Election booth eligibility
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.Write($"Enter age of person {i}: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            if (age >= 18)
+                Console.WriteLine("Eligible to Vote");
+            else
+                Console.WriteLine("Not Eligible");
+        }
+    }
+}
