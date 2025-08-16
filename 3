@@ -1,1 +1,89 @@
 
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+class Question3
+{
+    static void Main(string[] args)
+    {
+       i) ATM PIN system
+        int correctPin = 1234;
+        int attempts = 0;
+        bool accessGranted = false;
+        while (attempts < 3)
+        {
+            Console.Write("Enter PIN: ");
+            int enteredPin = Convert.ToInt32(Console.ReadLine());
+            if (enteredPin == correctPin)
+            {
+                Console.WriteLine("Access Granted");
+                accessGranted = true;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Wrong PIN");
+                attempts++;
+            }
+        }
+        if (!accessGranted)
+            Console.WriteLine("Card Blocked");
+        Console.WriteLine();
+
+        ii) Multiplication table with retry
+        string tryAgain;
+        do
+        {
+            Console.Write("Enter a number for multiplication table: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= 10; i++)
+                Console.WriteLine($"{num} x {i} = {num * i}");
+            Console.Write("Try another number? (Y/N): ");
+            tryAgain = Console.ReadLine();
+        } while (tryAgain.ToUpper() == "Y");
+        Console.WriteLine();
+
+        iii) Electricity bill calculation
+        Console.Write("Enter units consumed: ");
+        int units = Convert.ToInt32(Console.ReadLine());
+        int bill = 0;
+        if (units <= 100)
+            bill = units * 2;
+        else if (units <= 200)
+            bill = (100 * 2) + ((units - 100) * 3);
+        else
+            bill = (100 * 2) + (100 * 3) + ((units - 200) * 5);
+        Console.WriteLine($"Total bill: ₹{bill}");
+        Console.WriteLine();
+
+         iv) Student score analysis
+        int[] marks = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter marks for subject {i + 1}: ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        double avg = marks.Average();
+        Console.WriteLine($"Average marks: {avg}");
+        if (avg >= 40)
+            Console.WriteLine("Passed");
+        else
+            Console.WriteLine("Failed");
+        Console.WriteLine();
+
+       v) Name validation for ID cards
+        Console.Write("Enter name for ID card: ");
+        string name = Console.ReadLine();
+        if (IsValidName(name))
+            Console.WriteLine("Valid Name");
+        else
+            Console.WriteLine("Invalid Name");
+    }
+
+    static bool IsValidName(string name)
+    {
+        // Only letters and spaces allowed
+        return Regex.IsMatch(name, "^[A-Za-z ]+$");
+    }
+}
